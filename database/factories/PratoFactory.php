@@ -22,7 +22,8 @@ class PratoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'descricao'=>$this->faker->word,
+            'categoria'=>$this->faker->word
         ];
     }
 }
