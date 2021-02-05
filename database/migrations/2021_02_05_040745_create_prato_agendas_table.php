@@ -15,6 +15,8 @@ class CreatePratoAgendasTable extends Migration
     {
         Schema::create('prato_agendas', function (Blueprint $table) {
             $table->id();
+            $table->integer('agenda_id');
+            $table->integer('prato_id');
             $table->timestamps();
         });
     }
