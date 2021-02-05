@@ -40,4 +40,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pratos(){
+        return $this->hasMany(Prato::class);
+    }
+    public function agendas(){
+        return $this->hasMany(Prato::class);
+    }
 }
