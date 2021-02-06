@@ -23,4 +23,6 @@ Route::get('/dashboard', function () {
 
 Route::resource('pratos', \App\Http\Controllers\PratoController::class);
 
+Route::resource('agendas', \App\Http\Controllers\AgendaController::class);
+
 require __DIR__.'/auth.php';
