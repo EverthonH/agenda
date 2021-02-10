@@ -31,7 +31,7 @@
 
                 <x-input id="cpf" class="block mt-1 w-full" type="text" name="cpf" :value="old('cpf')" required autofocus />
             </div>
-            
+
             <!-- cep -->
             <div>
                 <x-label for="cep" :value="__('Cep')" />
