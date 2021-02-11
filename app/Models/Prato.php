@@ -8,6 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Prato extends Model
 {
     use HasFactory;
+    
+    protected $fillable = [
+        'descricao',
+		'categoria',
+		'user_id'
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }
