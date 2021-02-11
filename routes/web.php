@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Http\Controllers\HomeController;
+use \App\Http\Controllers\PratoController;
+use \App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['auth'])->name('dashboard');
 
-Route::resource('pratos', \App\Http\Controllers\PratoController::class);
+Route::post('/pratos/novo', [PratoController::class, 'store'])->name('add-prato');
 
 Route::resource('agendas', \App\Http\Controllers\AgendaController::class);
 
