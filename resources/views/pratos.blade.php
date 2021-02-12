@@ -7,8 +7,12 @@
                         Adicionar
             </div>
                 @foreach(Auth::user()->pratos->sortBy('categoria') as $prato)
-                    <div class="p-3 border m-0.5 rounded-lg hover:bg-red-200">
-                        {{$prato->descricao}} ({{$prato->categoria}})
+                    <div class="border m-1 rounded-lg">
+                        <div class="mt-3 px-2 border-b text-center">{{$prato->descricao}} ({{$prato->categoria}})</div>
+                        <div class="grid grid-cols-2 text-center">
+                            <a href="" class="bg-blue-400 rounded-bl-lg hover:bg-blue-300">Editar</a>
+                            <a href="{{ route('rm-prato', $prato)}}" class="bg-red-400 rounded-br-lg hover:bg-red-300">Excluir</a>
+                        </div>
                     </div> 
                 @endforeach
         </div>
