@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use \App\Http\Controllers\PratoController;
+use \App\Http\Controllers\AgendaController;
 use \App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
@@ -23,6 +24,7 @@ Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['aut
 
 Route::post('/pratos/novo', [PratoController::class, 'store'])->name('add-prato');
 
-Route::resource('agendas', \App\Http\Controllers\AgendaController::class);
+Route::post('/agendas/nova', [AgendaController::class, 'store'])->name('add-agenda');
+
 
 require __DIR__.'/auth.php';
