@@ -51,6 +51,6 @@ class User extends Authenticatable
         return $this->hasMany(Prato::class);
     }
     public function agendas(){
-        return $this->hasMany(Prato::class);
+        return $this->hasMany(Agenda::class);
     }
 }

@@ -9,6 +9,13 @@ class Agenda extends Model
 {
     use HasFactory;
 
+     protected $fillable = [
+        'tipo_de_refeicao',
+		'data',
+		'horario',
+		'user_id'
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }
