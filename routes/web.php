@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\PratoController;
 use \App\Http\Controllers\AgendaController;
 use \App\Http\Controllers\HomeController;
+use App\Models\Prato;
 
 Route::get('/', function () {
     return view('welcome');
@@ -24,7 +25,13 @@ Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['aut
 
 Route::post('/pratos/novo', [PratoController::class, 'store'])->name('add-prato');
 
+Route::model('prato', Prato::class);
+Route::get('/pratos/remover/{prato}', [PratoController::class, 'destroy'])->name('rm-prato');
+
 Route::post('/agendas/nova', [AgendaController::class, 'store'])->name('add-agenda');
+
+
+
 
 
 require __DIR__.'/auth.php';
