@@ -66,6 +66,8 @@ class PratoController extends Controller
      */
     public function destroy(Prato $prato)
     {
-        //
+        $prato->delete();
+        
+        return redirect('dashboard');
     }
 }
