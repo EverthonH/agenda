@@ -4,29 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Agenda;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AgendaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +16,15 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         Agenda::create([
+
+            'tipo_de_refeicao' => $request->tipo_de_refeicao,
+            'data' => $request->data,
+            'horario' => $request->horario,
+            'user_id'=>Auth::user()->id,
+        ]);
+
+        return redirect('dashboard');
     }
 
     /**
