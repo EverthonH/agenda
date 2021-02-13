@@ -1,4 +1,4 @@
-<div x-data="{ add_modal: false }">
+    <div x-data="{ add_modal: false }">
 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
     <div class="p-6 bg-white border-b border-gray-200">
                 <!-- Listando Agendas-->
@@ -90,7 +90,7 @@
                                         <div x-text="prato[1]"></div>
                                     </div>
                                     
-                                </template>f
+                                </template>
 
                             </div>
 
