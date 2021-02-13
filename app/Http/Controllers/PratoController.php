@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 
 class PratoController extends Controller
 {
+    public function list(){
+
+        return auth('jwt')->user()->pratos; 
+    }
     /**
      * Store a newly created resource in storage.
      *

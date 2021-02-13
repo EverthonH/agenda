@@ -26,7 +26,7 @@ Route::get('/dashboard', [HomeController::class, 'dashboard'])->middleware(['aut
 Route::post('/pratos/novo', [PratoController::class, 'store'])->name('add-prato');
 
 Route::model('prato', Prato::class);
-Route::get('/pratos/remover/{prato}', [PratoController::class, 'destroy'])->name('rm-prato');
+Route::get('/pratos/remover/{prato}', [PratoController::class, 'destroy'])->name('rm-prato')->middleware('auth');
 
 Route::post('/agendas/nova', [AgendaController::class, 'store'])->name('add-agenda');
 
