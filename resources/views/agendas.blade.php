@@ -52,16 +52,46 @@
                         $pratos = \App\Models\Prato::where('user_id', Auth::user()->id)->get()->sortBy('categoria')
                     @endphp
 
-                    <select multiple name="" id="" class="w-full block rounded-md">
+                    <!-- <select multiple name="" id="" class="w-full block rounded-md">
                         @foreach ($pratos as $prato)
-                            <option value="{{ $prato->id }}">{{ $prato->descricao }}</option>
+                            <option value="{{ $prato->id }}">{{$prato->descricao}} ({{$prato->categoria}})</option>
                         @endforeach
-                    </select>
+                    </select> -->
                         
-                            <div>
-                                <x-label for="tipo_de_refeicao" :value="__('Tipo de refeição')" />
+                        <div>
+                            <x-label for="tipo_de_refeicao" :value="__('Tipo de refeição')" />
 
-                                <x-input id="tipo_de_refeicao" class="block mt-1 w-full" type="text" name="tipo_de_refeicao" :value="old('tipo_de_refeicao')" required />
+                            <x-input id="tipo_de_refeicao" class="block mt-1 w-full" type="text" name="tipo_de_refeicao" :value="old('tipo_de_refeicao')" required />
+                            </div>
+
+                            <div x-data="{pratos: [] }">
+                                <x-label :value="__('Pratos')"/>
+
+                                <template x-for="(prato, index) in pratos" :key="prato">
+                                    <div class="md-2 grid grid-cols-3 hover:bg-gray-100 py-1 ">
+                                        <select name="prato[]" id="" class="mr-2 border-gray-300 rounded-md" x-model="prato[0]">
+                                            <option>Prato</option>
+                                            <option disabled>--</option>
+                                            @foreach(Auth::user()->pratos as $prato)
+                                                <option value="{{ $prato->id }}">
+                                                 {{ $prato->categoria }} </option>
+                                            @endforeach
+                                        </select>
+                                        
+                                    </div>
+                                    
+                                </template>
+                                <div class="w-full bg-red-200 hover:bg-red-400 cursor-pointer px-3 py-2" @click="pratos.push([0,''])">
+                                    Adicionar Pratos
+                                </div>
+                                <template x-for="prato in pratos">
+                                    <div>
+                                        <div x-text="prato[0]"></div>
+                                        <div x-text="prato[1]"></div>
+                                    </div>
+                                    
+                                </template>f
+
                             </div>
 
                             <div>

@@ -9,6 +9,12 @@ class PratoAgenda extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+		'agenda_id',
+		'prato_id'
+    ];
+
+
     public function pratos(){
         return $this->belongsTo(Prato::class);
     }

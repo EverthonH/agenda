@@ -16,13 +16,20 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-         Agenda::create([
+         $agenda = Agenda::create([
 
             'tipo_de_refeicao' => $request->tipo_de_refeicao,
             'data' => $request->data,
             'horario' => $request->horario,
             'user_id'=>Auth::user()->id,
         ]);
+
+          foreach($request->prato as $prato_id){
+             PratoAgenda::create([
+                'prato_id' => $prato_id,
+                'agenda_id' => $agenda->id
+         ]);
+         }
 
         return redirect('dashboard');
     }
